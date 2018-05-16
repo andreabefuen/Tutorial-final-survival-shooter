@@ -20,7 +20,7 @@ public class PlayerShooting : MonoBehaviour
 
     void Awake ()
     {
-        shootableMask = LayerMask.GetMask ("Shootable");
+        shootableMask = LayerMask.GetMask ("Shootable"); //Numerp de la máscara
         gunParticles = GetComponent<ParticleSystem> ();
         gunLine = GetComponent <LineRenderer> ();
         gunAudio = GetComponent<AudioSource> ();
@@ -65,18 +65,21 @@ public class PlayerShooting : MonoBehaviour
         gunLine.enabled = true;
         gunLine.SetPosition (0, transform.position);
 
-        shootRay.origin = transform.position;
+        shootRay.origin = transform.position; //El empiece de la pistola
         shootRay.direction = transform.forward;
 
         if(Physics.Raycast (shootRay, out shootHit, range, shootableMask))
         {
             EnemyHealth enemyHealth = shootHit.collider.GetComponent <EnemyHealth> ();
-            if(enemyHealth != null)
+            //Si disparamos al suelo o a un muro, será null
+            if (enemyHealth != null)
             {
                 enemyHealth.TakeDamage (damagePerShot, shootHit.point);
             }
+            //Sea lo que sea a lo que disparemos, el rayo de disparo lo tenemos
             gunLine.SetPosition (1, shootHit.point);
         }
+        //Si no golpeamos nada
         else
         {
             gunLine.SetPosition (1, shootRay.origin + shootRay.direction * range);

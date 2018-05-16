@@ -39,9 +39,11 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage (int amount, Vector3 hitPoint)
     {
+
+        //Si está muerto no se hace nada
         if(isDead)
             return;
-
+        
         enemyAudio.Play ();
 
         currentHealth -= amount;
@@ -60,6 +62,7 @@ public class EnemyHealth : MonoBehaviour
     {
         isDead = true;
 
+        //Físicas para que no se convierta en un obstáculo
         capsuleCollider.isTrigger = true;
 
         anim.SetTrigger ("Dead");
@@ -71,6 +74,8 @@ public class EnemyHealth : MonoBehaviour
 
     public void StartSinking ()
     {
+
+        //Como es un componente se pone enabled, si fuera un objeto sería con active
         GetComponent <UnityEngine.AI.NavMeshAgent> ().enabled = false;
         GetComponent <Rigidbody> ().isKinematic = true;
         isSinking = true;
