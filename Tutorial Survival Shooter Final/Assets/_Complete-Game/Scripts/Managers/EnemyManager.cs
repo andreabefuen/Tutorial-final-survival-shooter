@@ -29,6 +29,21 @@ namespace CompleteProject
             // Find a random index between zero and one less than the number of spawn points.
             int spawnPointIndex = Random.Range (0, spawnPoints.Length);
 
+            if(enemy.name == "ZomBunny")
+            {
+                ZombunniesCount.zombunnies++;
+            }
+            if(enemy.name == "ZomBear")
+            {
+                ZombearsCount.zombears++;
+            }
+            if(enemy.name == "Hellephant")
+            {
+                HellephantsCount.hellephants++;
+            }
+           
+            
+
             // Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
             Instantiate (enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation);
         }

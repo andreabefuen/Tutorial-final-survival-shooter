@@ -85,6 +85,22 @@ namespace CompleteProject
             // Change the audio clip of the audio source to the death clip and play it (this will stop the hurt clip playing).
             enemyAudio.clip = deathClip;
             enemyAudio.Play ();
+
+            if (gameObject.tag == "Zombunny")
+            {
+                ZombunniesCount.zombunnies--;
+
+            }
+            if (gameObject.tag == "Zombear")
+            {
+                ZombearsCount.zombears--;
+
+            }
+            if(gameObject.tag == "Hellephant")
+            {
+                HellephantsCount.hellephants--;
+            }
+
         }
 
 
@@ -101,6 +117,7 @@ namespace CompleteProject
 
             // Increase the score by the enemy's score value.
             ScoreManager.score += scoreValue;
+            
 
             // After 2 seconds destory the enemy.
             Destroy (gameObject, 2f);

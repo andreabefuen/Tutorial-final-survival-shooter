@@ -80,6 +80,7 @@ public class EnemyHealth : MonoBehaviour
         GetComponent <Rigidbody> ().isKinematic = true;
         isSinking = true;
         ScoreManager.score += scoreValue; //Coge el static de score y lo aumenta
+        
         Destroy (gameObject, 2f);
     }
 }

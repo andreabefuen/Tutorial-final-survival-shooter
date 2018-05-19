@@ -7,7 +7,7 @@ namespace CompleteProject
     {
         public float speed = 6f;            // The speed that the player will move at.
 
-
+        public static bool isSafe = false;
         Vector3 movement;                   // The vector to store the direction of the player's movement.
         Animator anim;                      // Reference to the animator component.
         Rigidbody playerRigidbody;          // Reference to the player's rigidbody.
@@ -113,5 +113,23 @@ namespace CompleteProject
             // Tell the animator whether or not the player is walking.
             anim.SetBool ("IsWalking", walking);
         }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if(other.gameObject == GameObject.FindGameObjectWithTag("SafeRegion"))
+            {
+                isSafe = true;
+            }
+        }
+
+        private void OnTriggerExit(Collider other)
+        {
+            if(other.gameObject == GameObject.FindGameObjectWithTag("SafeRegion"))
+            {
+                isSafe = false;
+            }
+        }
+
     }
+
 }

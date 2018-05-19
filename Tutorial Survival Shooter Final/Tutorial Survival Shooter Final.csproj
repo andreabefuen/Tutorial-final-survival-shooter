@@ -245,6 +245,9 @@
     <Compile Include="Assets\_Complete-Game\Scripts\Enemy\EnemyAttack.cs" />
     <Compile Include="Assets\_Complete-Game\Scripts\Enemy\EnemyHealth.cs" />
     <Compile Include="Assets\_Complete-Game\Scripts\Enemy\EnemyMovement.cs" />
+    <Compile Include="Assets\_Complete-Game\Scripts\Enemy\HellephantsCount.cs" />
+    <Compile Include="Assets\_Complete-Game\Scripts\Enemy\ZombearsCount.cs" />
+    <Compile Include="Assets\_Complete-Game\Scripts\Enemy\ZombunniesCount.cs" />
     <Compile Include="Assets\_Complete-Game\Scripts\Helpers\RandomAnimationPoint.cs" />
     <Compile Include="Assets\_Complete-Game\Scripts\Helpers\RandomParticlePoint.cs" />
     <Compile Include="Assets\_Complete-Game\Scripts\Helpers\VolumeHandler.cs" />
